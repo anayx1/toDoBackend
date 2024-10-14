@@ -10,7 +10,9 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cors());
 
-mongoose
+app.get('/home', (req, res) => {
+  res.status(200).json('Welcome, your app is working well');
+});mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("DB Connectedd"))
   .catch((err) => console.log(err));
